@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+//colors
+$gradient: hsl(236, 72%, 79%), hsl(237, 63%, 64%);
+$veryLightGrayishBlue: hsl(240, 78%, 98%);
+$lightGrayishBlue: hsl(234, 14%, 74%);
+$grayishBlue: hsl(233, 13%, 49%);
+$darkGrayishBlue: hsl(232, 13%, 33%);
+$white: rgb(255, 255, 255);
+
+//font-family
+$font-family: "Montserrat", sans-serif;
+
+//font size
+$font-normal: 15px;
+
+//breakpoints
+$mediaBreakpoints: ("mobile": "375px", "tablet": "768px", "desktop": "1012px");

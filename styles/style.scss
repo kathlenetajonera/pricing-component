@@ -1,0 +1,222 @@
+@import "./variables";
+@import "./mixins";
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+
+    font-family: $font-family;
+}
+
+.landing {
+    background-color: $veryLightGrayishBlue;
+    min-height: 100vh;
+    position: relative;
+    padding: 3rem 1.5rem;
+    z-index: 1;
+    overflow-x: hidden;
+
+    &::before {
+        content: url("/images/bg-top.svg");
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform: translate(50%, -5%);
+        z-index: -1;
+    }
+
+    @include mediaQuery(desktop) {
+        &::before {
+            transform: translate(0, 0);
+        }
+
+        &::after {
+            content: url("/images/bg-bottom.svg");
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            z-index: -1;
+        }
+    }
+
+    .header {
+        text-align: center;
+
+        .toggle {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 2rem 0;
+
+            .toggle_btn {
+                width: 60px;
+                height: 30px;
+                background: linear-gradient(to right, $gradient);
+                border-radius: 2rem;
+                margin: 0 1rem;
+                position: relative;
+                cursor: pointer;
+
+                .indicator {
+                    background-color: white;
+                    width: 23px;
+                    height: 23px;
+                    border-radius: 50%;
+                    position: absolute;
+                    top: 50%;
+                    left: 55%;
+                    transform: translateY(-50%);
+                    transition: .1s ease;
+
+                    &.annual {
+                        left: 6%;
+                    }
+                }
+
+                &:hover {
+                    opacity: .5;
+                }
+            }
+        }
+
+        h1 {
+            color: $grayishBlue;
+        }
+
+        p {
+            color: $lightGrayishBlue;
+            font-size: $font-normal;
+        }
+    }
+
+    .container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-gap: 2rem;
+        padding: 3rem 0;
+        width: Min(1000px, 100%);
+        margin: 0 auto;
+        align-items: center;
+
+        .card {
+            background-color: $white;
+            padding: 1.5rem;
+            text-align: center;
+            border-radius: .5rem;
+
+            .plan_name {
+                color: $grayishBlue;
+                font-size: 1.1rem;
+            }
+
+            .pricing {
+                margin: 2rem 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: $darkGrayishBlue;
+
+                .cost {
+                    font-size: 4rem;
+
+                    &.monthly {
+                        display: block;
+                    }
+
+                    &.annually {
+                        display: none;
+                    }
+                }
+
+                span {
+                    font-size: 2.3rem;
+                }
+            }
+
+            .features {
+                p {
+                    font-size: $font-normal;
+                    padding: 1rem 0;
+                    color: $grayishBlue;
+                    border-bottom: 1px solid $lightGrayishBlue;
+
+                    &:first-child {
+                        border-top: 1px solid $lightGrayishBlue;
+                    }
+                }
+            }
+
+            button {
+                border: none;
+                outline: none;
+                padding: 1rem;
+                margin-top: 2rem;
+                width: 100%;
+                background: linear-gradient(to right, $gradient);
+                border-radius: .5rem;
+                color: $white;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                border: 1px solid transparent;
+                cursor: pointer;
+
+                &:hover {
+                    color: hsl(237, 63%, 64%);
+                    border: 1px solid hsl(237, 63%, 64%);
+                    background: transparent;
+                }
+            }
+
+            &.active {
+                background: linear-gradient($gradient);
+
+                .plan_name, .pricing, .features p {
+                    color: $white;
+                }
+
+                .features p {
+                    border-bottom: 1px solid hsl(236, 72%, 79%);
+                    
+                    &:first-child {
+                        border-top: 1px solid hsl(236, 72%, 79%);
+                    }
+                }
+
+                button {
+                    background: $white;
+                    color: hsl(237, 63%, 64%);
+
+                    &:hover {
+                        color: $white;
+                        border: 1px solid $white;
+                        background: none;
+                    }
+                }
+
+                @include mediaQuery(desktop) {
+                    height: 108%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                }
+            }
+        }
+
+        @include mediaQuery(desktop) {
+            grid-gap: 0;
+        }
+    }
+}
+
+.attribution {
+    font-family: sans-serif;
+    font-size: 11px;
+    text-align: center;
+    padding: 1rem 0;
+
+    a {
+        color: hsl(228, 45%, 44%);
+        font-family: sans-serif;
+    }
+} 

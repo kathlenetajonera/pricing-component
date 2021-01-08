@@ -1,0 +1,252 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap");
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+}
+
+.landing {
+  background-color: #f6f6fe;
+  min-height: 100vh;
+  position: relative;
+  padding: 3rem 1.5rem;
+  z-index: 1;
+  overflow-x: hidden;
+}
+
+.landing::before {
+  content: url("/images/bg-top.svg");
+  position: absolute;
+  top: 0;
+  right: 0;
+  -webkit-transform: translate(50%, -5%);
+          transform: translate(50%, -5%);
+  z-index: -1;
+}
+
+@media (min-width: 1012px) {
+  .landing::before {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+  .landing::after {
+    content: url("/images/bg-bottom.svg");
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+  }
+}
+
+.landing .header {
+  text-align: center;
+}
+
+.landing .header .toggle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 2rem 0;
+}
+
+.landing .header .toggle .toggle_btn {
+  width: 60px;
+  height: 30px;
+  background: -webkit-gradient(linear, left top, right top, from(#a3a8f0), to(#696fdd));
+  background: linear-gradient(to right, #a3a8f0, #696fdd);
+  border-radius: 2rem;
+  margin: 0 1rem;
+  position: relative;
+  cursor: pointer;
+}
+
+.landing .header .toggle .toggle_btn .indicator {
+  background-color: white;
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 55%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  -webkit-transition: .1s ease;
+  transition: .1s ease;
+}
+
+.landing .header .toggle .toggle_btn .indicator.annual {
+  left: 6%;
+}
+
+.landing .header .toggle .toggle_btn:hover {
+  opacity: .5;
+}
+
+.landing .header h1 {
+  color: #6d708d;
+}
+
+.landing .header p {
+  color: #b3b5c6;
+  font-size: 15px;
+}
+
+.landing .container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(300px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 2rem;
+  padding: 3rem 0;
+  width: Min(1000px, 100%);
+  margin: 0 auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.landing .container .card {
+  background-color: white;
+  padding: 1.5rem;
+  text-align: center;
+  border-radius: .5rem;
+}
+
+.landing .container .card .plan_name {
+  color: #6d708d;
+  font-size: 1.1rem;
+}
+
+.landing .container .card .pricing {
+  margin: 2rem 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #494c5f;
+}
+
+.landing .container .card .pricing .cost {
+  font-size: 4rem;
+}
+
+.landing .container .card .pricing .cost.monthly {
+  display: block;
+}
+
+.landing .container .card .pricing .cost.annually {
+  display: none;
+}
+
+.landing .container .card .pricing span {
+  font-size: 2.3rem;
+}
+
+.landing .container .card .features p {
+  font-size: 15px;
+  padding: 1rem 0;
+  color: #6d708d;
+  border-bottom: 1px solid #b3b5c6;
+}
+
+.landing .container .card .features p:first-child {
+  border-top: 1px solid #b3b5c6;
+}
+
+.landing .container .card button {
+  border: none;
+  outline: none;
+  padding: 1rem;
+  margin-top: 2rem;
+  width: 100%;
+  background: -webkit-gradient(linear, left top, right top, from(#a3a8f0), to(#696fdd));
+  background: linear-gradient(to right, #a3a8f0, #696fdd);
+  border-radius: .5rem;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.landing .container .card button:hover {
+  color: #696fdd;
+  border: 1px solid #696fdd;
+  background: transparent;
+}
+
+.landing .container .card.active {
+  background: -webkit-gradient(linear, left top, left bottom, from(#a3a8f0), to(#696fdd));
+  background: linear-gradient(#a3a8f0, #696fdd);
+}
+
+.landing .container .card.active .plan_name, .landing .container .card.active .pricing, .landing .container .card.active .features p {
+  color: white;
+}
+
+.landing .container .card.active .features p {
+  border-bottom: 1px solid #a3a8f0;
+}
+
+.landing .container .card.active .features p:first-child {
+  border-top: 1px solid #a3a8f0;
+}
+
+.landing .container .card.active button {
+  background: white;
+  color: #696fdd;
+}
+
+.landing .container .card.active button:hover {
+  color: white;
+  border: 1px solid white;
+  background: none;
+}
+
+@media (min-width: 1012px) {
+  .landing .container .card.active {
+    height: 108%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+@media (min-width: 1012px) {
+  .landing .container {
+    grid-gap: 0;
+  }
+}
+
+.attribution {
+  font-family: sans-serif;
+  font-size: 11px;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.attribution a {
+  color: #3e52a3;
+  font-family: sans-serif;
+}
+/*# sourceMappingURL=style.css.map */
